@@ -8,7 +8,7 @@ namespace Muljin.JsonConverters
 {
     /// <summary>
     /// Custom converter for timespan used for hours and minutes.
-    /// Converts from format hh:mm to TimeSpan hours and minutes
+    /// Converts from format hh:mm to TimeSpan hours and minutes.
     /// </summary>
     public class TimeSpanJsonConverter : JsonConverter<TimeSpan>
     {
