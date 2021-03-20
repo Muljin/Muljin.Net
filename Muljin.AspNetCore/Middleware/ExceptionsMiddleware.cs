@@ -27,13 +27,17 @@ namespace Muljin.AspNetCore.Middleware
             {
                 await SetContextError(context, 409, ex.Message);
             }
-            catch (ForbiddenUserActionException ex)
+            catch (UnauthorizedException ex)
             {
                 await SetContextError(context, 403, ex.Message);
             }
             catch (RecordNotFoundException ex)
             {
                 await SetContextError(context, 404, ex.Message);
+            }
+            catch (UserActionException ex)
+            {
+                await SetContextError(context, 400, ex.Message);
             }
         }
 

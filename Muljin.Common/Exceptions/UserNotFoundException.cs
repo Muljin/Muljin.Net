@@ -9,7 +9,7 @@ namespace Muljin.Exceptions
     /// </summary>
     public class UserNotFoundException : UserActionException
     {
-        public UserNotFoundException() :{
+        public UserNotFoundException(){
             new UserNotFoundException("User not found");
         }
 
