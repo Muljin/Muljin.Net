@@ -13,32 +13,32 @@ namespace Muljin.Async
     public class TaskGroup : IEnumerable<Task>
     {
 
-        private List<Task> _tasksList { get; set; }
+        private List<Task> TasksList { get; set; } = new List<Task>();
 
         public void Add(Task task)
         {
-            _tasksList.Add(task);
+            TasksList.Add(task);
         }
 
         public void Add(Func<Task> func)
         {
-            _tasksList.Add(func.Invoke());
+            TasksList.Add(func.Invoke());
         }
 
         public async Task WaitAll()
         {
-            await Task.WhenAll(_tasksList);
-            _tasksList.Clear();
+            await Task.WhenAll(TasksList);
+            TasksList.Clear();
         }
 
         public IEnumerator<Task> GetEnumerator()
         {
-            return _tasksList.GetEnumerator();
+            return TasksList.GetEnumerator();
         }
 
         IEnumerator IEnumerable.GetEnumerator()
         {
-            return _tasksList.GetEnumerator();
+            return TasksList.GetEnumerator();
         }
     }
 }

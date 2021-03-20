@@ -13,6 +13,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{12613F1A
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Muljin.Common.Tests", "Tests\Muljin.Common.Tests\Muljin.Common.Tests.csproj", "{F698F9B5-BC1A-4E51-ABDC-E5C0941C57FF}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Muljin.Data.Postgres", "Muljin.Data.Npgsql\Muljin.Data.Postgres.csproj", "{BB4CF954-247D-4A02-9BE5-EB4EC1FFA53F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -35,6 +37,10 @@ Global
 		{F698F9B5-BC1A-4E51-ABDC-E5C0941C57FF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F698F9B5-BC1A-4E51-ABDC-E5C0941C57FF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F698F9B5-BC1A-4E51-ABDC-E5C0941C57FF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BB4CF954-247D-4A02-9BE5-EB4EC1FFA53F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BB4CF954-247D-4A02-9BE5-EB4EC1FFA53F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BB4CF954-247D-4A02-9BE5-EB4EC1FFA53F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BB4CF954-247D-4A02-9BE5-EB4EC1FFA53F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

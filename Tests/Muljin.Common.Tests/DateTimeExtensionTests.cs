@@ -1,5 +1,4 @@
 using System;
-using Muljin.Extensions;
 using NUnit.Framework;
 
 namespace Muljin.Common.Tests
