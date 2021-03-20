@@ -1,3 +1,6 @@
+[![Publish muljin common](https://github.com/Muljin/Muljin.Net/actions/workflows/muljin-common.yml/badge.svg)](https://github.com/Muljin/Muljin.Net/actions/workflows/muljin-common.yml)
+
+
 
 # Muljin.Net
 Shared libraries and utilities used in Muljin projects.
