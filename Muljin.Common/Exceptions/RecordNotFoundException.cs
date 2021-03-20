@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Muljin
+namespace Muljin.Exceptions
 {
     public class RecordNotFoundException : Exception
     {

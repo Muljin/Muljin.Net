@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Muljin.Extensions
+namespace System
 {
     public static class DateTimeExtensions
     {
