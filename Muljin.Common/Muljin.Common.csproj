@@ -1,0 +1,29 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <RootNamespace>Muljin</RootNamespace>
+    <AssemblyName>Muljin.Common</AssemblyName>
+    <PackageId>Muljin.Common</PackageId>
+    <Authors>Mahmoud Swehli</Authors>
+    <Company>Muljin Pte. Ltd.</Company>
+    <Product>Muljin.Common</Product>
+    <Description>Muljin common classes</Description>
+    <Copyright>Muljin Pte. Ltd.</Copyright>
+    <PackageProjectUrl>https://www.muljin.com</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/Muljin/Muljin.Net</RepositoryUrl>
+    <Version>2.0.0</Version>
+    <PackageLicenseFile>LICENSE</PackageLicenseFile>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Include="..\LICENSE">
+      <Pack>True</Pack>
+      <PackagePath></PackagePath>
+    </None>
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="System.Text.Json" Version="5.0.1" />
+  </ItemGroup>
+</Project>

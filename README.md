@@ -1,5 +1,7 @@
-# Project Update
-As we have rebranded to a new company identity (Muljin). This project has permanently moved to (https://github.com/Muljin)[https://github.com/Muljin]
 
-# moodio
-Shared libraries and utilities used in other moodio projects
+# Muljin.Net
+Shared libraries and utilities used in Muljin projects.
+
+Split into the following libraries:
+Muljin.Common : Common functions which do not rely on any external libraries
+Muljin.AspNetCore: Asp.Net Core functions and extensions to be used with the Muljin library, such as exception catching middleware.
