@@ -6,6 +6,12 @@ namespace Muljin.Utils
 {
     public static class Guards
     {
+        /// <summary>
+        /// Throws exception is default value but not if null.
+        /// </summary>
+        /// <param name="obj"></param>
+        /// <param name="paramName"></param>
+        /// <param name="message"></param>
         public static void NotDefault(object obj, string paramName, string message = null)
         {
             if (obj == null)
@@ -20,6 +26,12 @@ namespace Muljin.Utils
 
         }
 
+        /// <summary>
+        /// Throws exception if default value but not if null
+        /// </summary>
+        /// <param name="obj"></param>
+        /// <param name="paramName"></param>
+        /// <param name="message"></param>
         public static void NotDefault(string obj, string paramName, string message = null)
         {
             if (obj == null)
