@@ -12,7 +12,7 @@ namespace System
             return StringUtils.ConvertToSlug(input);
         }
 
-        public static string ToSnackCase(this string input)
+        public static string ToSnakeCase(this string input)
         {
             return StringUtils.ConvertToSnakeCase(input);
         }
