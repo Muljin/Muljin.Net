@@ -44,6 +44,32 @@ namespace Muljin.Utils
             return input.ToLower().Replace(' ', '-');
         }
 
+        public static string ConvertToSnakeCase(string input)
+        {
+            if (String.IsNullOrWhiteSpace(input))
+            {
+                return input;
+            }
+
+            //dont add on first char
+            var sb = new StringBuilder();
+            sb.Append(char.ToLower(input[0]));
+            for(int i=1, len=input.Length; i<len; i++)
+            {
+                if (Char.IsUpper(input[i]))
+                {
+                    sb.Append('_');
+                    sb.Append(Char.ToLower(input[i]));
+                }
+                else
+                {
+                    sb.Append(input[i]);
+                }
+            }
+
+            return sb.ToString();
+        }
+
         public static string GenerateRandomString(int length, string prefix = null)
         {
             var chars = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXTZ";
