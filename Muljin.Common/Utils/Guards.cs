@@ -45,13 +45,18 @@ namespace Muljin.Utils
             }
         }
 
-
-        public static void NotNullOrDefault(object obj, string paramName, string message = null)
+        public static void NotNull(object obj, string paramName, string message = null)
         {
             if (obj == null)
             {
                 throw new ArgumentNullException(paramName, message ?? "Parameter cannot be null");
             }
+        }
+
+
+        public static void NotNullOrDefault(object obj, string paramName, string message = null)
+        {
+            Guards.NotNull(obj, paramName, message);
 
             if (obj == default)
             {
@@ -65,10 +70,7 @@ namespace Muljin.Utils
         /// <param name="obj"></param>
         public static void NotNullOrDefault(string obj, string paramName, string message = null)
         {
-            if (obj == null)
-            {
-                throw new ArgumentNullException(paramName, message ?? "Parameter cannot be null");
-            }
+            Guards.NotNull(obj, paramName, message);
 
             if (String.IsNullOrWhiteSpace(obj))
             {
