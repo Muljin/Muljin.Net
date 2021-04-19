@@ -62,7 +62,7 @@ namespace Muljin.Data.Postgres
 
         private static Exception ConvertException(PostgresException e)
         {
-            switch (e.Message)
+            switch (e.MessageText)
             {
                 case ErrorCodes.UserNotFound:
                     return new UserNotFoundException("Selected user not found");
