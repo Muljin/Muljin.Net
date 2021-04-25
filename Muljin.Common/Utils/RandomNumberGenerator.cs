@@ -30,8 +30,16 @@ namespace Muljin.Utils
             var bytes = new byte[4];
             _rngCryptoService.GetBytes(bytes);
             var val = BitConverter.ToUInt32(bytes, 0);
-            var res = (int)Math.Ceiling(min + ( (decimal)val / (decimal)UInt32.MaxValue * max ));
+            var res = (int)Math.Ceiling(min + ( (decimal)val / (decimal)UInt32.MaxValue * (max-min) ));
             return res;
+        }
+
+        public static int GetSingle(int max, int min = 0)
+        {
+            using (var rnd = new RandomNumberGenerator())
+            {
+                return rnd.Generate(max, min);
+            }
         }
     }
 }

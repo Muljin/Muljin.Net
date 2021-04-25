@@ -13,7 +13,7 @@ namespace Muljin.Common.Tests
         public void NumbersStayBetweenMaxAndMin()
         {
             int max = 874749;
-            int min = -2323;
+            int min = 1000;
             using (var rn = new RandomNumberGenerator())
             {
                 for(var i = 0; i<1000; i++)
