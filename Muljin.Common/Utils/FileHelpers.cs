@@ -82,6 +82,16 @@ namespace Muljin.Utils
             }
         };
 
+        public static string GetExtension(string filename)
+        {
+            if (String.IsNullOrWhiteSpace(filename) || filename.LastIndexOf('.') == -1 )
+            {
+                return String.Empty;
+            }
+
+            return filename.Substring(filename.LastIndexOf('.')+1);
+        }
+
         /// <summary>
         /// Validate the signature of a file based on its file extension
         ///
