@@ -25,33 +25,34 @@ namespace Muljin.AspNetCore.Middleware
             }
             catch (ConflictException ex)
             {
-                await SetContextError(context, 409, ex.Message);
+                await SetContextError(context, 409, ex);
             }
             catch (UnauthorizedException ex)
             {
-                await SetContextError(context, 403, ex.Message);
+                await SetContextError(context, 403, ex);
             }
             catch (RecordNotFoundException ex)
             {
-                await SetContextError(context, 404, ex.Message);
+                await SetContextError(context, 404, ex);
             }
             catch (UserActionException ex)
             {
-                await SetContextError(context, 400, ex.Message);
+                await SetContextError(context, 400, ex);
             }
             catch(MuljinException ex)
             {
-                await SetContextError(context, 500, ex.Message);
+                await SetContextError(context, 500, ex);
             }
         }
 
-        private async Task SetContextError(HttpContext context, int statusCode, string message)
+        private async Task SetContextError(HttpContext context, int statusCode, MuljinException exception)
         {
             context.Response.Clear();
             context.Response.StatusCode = statusCode;
             context.Response.ContentType = "application/json";
 
-            await context.Response.WriteAsync(System.Text.Json.JsonSerializer.Serialize(new { Success = false, Message = message }));
+            await context.Response.WriteAsync(System.Text.Json.JsonSerializer.Serialize(new ErrorResult{ 
+                Success = false, Message = exception.Message, ErrorCode = exception.ErrorCode }));
         }
     }
 

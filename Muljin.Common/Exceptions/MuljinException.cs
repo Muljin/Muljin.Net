@@ -8,11 +8,7 @@ namespace Muljin.Exceptions
     {
         public MuljinException() { }
 
-        public MuljinException(string message) : base(message)
-        {
-        }
-
-        public MuljinException(string message, string errorCode) : base(message)
+        public MuljinException(string message, string errorCode = "GENERR") : base(message)
         {
             ErrorCode = errorCode;
         }
