@@ -7,6 +7,33 @@ namespace Muljin.Utils
     public static class Guards
     {
         /// <summary>
+        /// Check value is greater than limit
+        /// </summary>
+        /// <param name="value"></param>
+        /// <param name="limit"></param>
+        public static void GreaterThan(int value, int limit, string paramName, string message = null)
+        {
+            if(value <= limit)
+            {
+                throw new ArgumentException(message ?? $"Invalid paramter. Parameter must be greater than {limit}", paramName);
+            }
+
+        }
+
+        /// <summary>
+        /// Check value is less than given limit
+        /// </summary>
+        /// <param name="value"></param>
+        /// <param name="limit"></param>
+        public static void LessThan(int value, int limit, string paramName, string message = null) 
+        {
+            if(value >= limit)
+            {
+                throw new ArgumentException(message ?? $"Invalid parameter. {paramName} must be less than {limit}", paramName);
+            }
+        }
+
+        /// <summary>
         /// Throws exception is default value but not if null.
         /// </summary>
         /// <param name="obj"></param>
