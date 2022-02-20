@@ -1,9 +1,9 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>netstandard2.1</TargetFramework>
+    <TargetFramework>net6.0</TargetFramework>
     <PackageId>Muljin.AspNetCore</PackageId>
-    <Version>2.1.1</Version>
+    <Version>2.2.2</Version>
     <Authors>Mahmoud Swehli</Authors>
     <Company>Muljin Pte. Ltd</Company>
     <Description>Muljin common classes and utilities for Asp.Net Core</Description>
@@ -18,7 +18,7 @@
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.Http.Abstractions" Version="2.2.0" />
     <PackageReference Include="Microsoft.AspNetCore.Http.Extensions" Version="2.2.0" />
-    <PackageReference Include="Microsoft.Extensions.Logging.Abstractions" Version="5.0.0" />
+    <PackageReference Include="Microsoft.Extensions.Logging.Abstractions" Version="6.0.0" />
     <PackageReference Include="Muljin.Common" Version="2.1.1" />
   </ItemGroup>
 

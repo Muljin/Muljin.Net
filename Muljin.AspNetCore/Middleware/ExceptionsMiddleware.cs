@@ -39,6 +39,10 @@ namespace Muljin.AspNetCore.Middleware
             {
                 await SetContextError(context, 400, ex);
             }
+            catch(ServiceUnavailableException ex)
+            {
+                await SetContextError(context, 503, ex);
+            }
             catch(MuljinException ex)
             {
                 await SetContextError(context, 500, ex);
