@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Muljin.Exceptions
 {
-    internal class ServiceUnavailableException : MuljinException
+    public class ServiceUnavailableException : MuljinException
     {
         public ServiceUnavailableException() { }
 
