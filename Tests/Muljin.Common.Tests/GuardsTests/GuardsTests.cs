@@ -10,6 +10,8 @@ namespace Muljin.Common.Tests.GuardsTests
 {
     public class AlphaNumericGuardsTests
     {
+        [TestCase("0")]
+        [TestCase("a")]
         [TestCase("01234567890")]
         [TestCase("ABCaabz1234567890")]
         [TestCase("AAAAA")]
@@ -30,5 +32,23 @@ namespace Muljin.Common.Tests.GuardsTests
         {
             Assert.Throws<ArgumentException>(()=>Guards.AlphaNumeric(value, nameof(value)));
         }
+
+        [TestCase("01234567890")]
+        [TestCase("0")]
+        public void WhenNumericSucceeds(string value)
+        {
+            Assert.DoesNotThrow(() => Guards.Numeric(value, nameof(value)));
+        }
+
+        [TestCase("01234567890#")]
+        [TestCase("34567890a")]
+        [TestCase("82823 8213182")]
+        [TestCase("098127x8128")]
+        public void WhenNotNumericFails(string value)
+        {
+            Assert.Throws<ArgumentException>(() => Guards.Numeric(value, nameof(value)));
+        }
+
+
     }
 }
