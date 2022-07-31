@@ -7,6 +7,42 @@ namespace Muljin.Utils
     public static class Guards
     {
         /// <summary>
+        /// Ensure a string only consists of alpha numeric characters
+        /// </summary>
+        /// <param name="obj"></param>
+        /// <param name="paramName"></param>
+        /// <param name="message"></param>
+        /// <exception cref="ArgumentException"></exception>
+        public static void AlphaNumeric(string obj, string paramName, string message = null)
+        {
+            foreach(var o in obj)
+            {
+                if (!Char.IsLetterOrDigit(o))
+                {
+                    throw new ArgumentException(message ?? "Invalid input. Input must consist of alpha numeric characters only", paramName);
+                }
+            }
+        }
+
+        /// <summary>
+        /// Ensure a string only consists of numbers
+        /// </summary>
+        /// <param name="obj"></param>
+        /// <param name="paramName"></param>
+        /// <param name="message"></param>
+        /// <exception cref="ArgumentException"></exception>
+        public static void Numeric(string obj, string paramName, string message = null)
+        {
+            foreach(var o in obj)
+            {
+                if (!Char.IsDigit(o))
+                {
+                    throw new ArgumentException(message ?? "Invalid input. Input must consist of numbers only", paramName);
+                }
+            }
+        }
+
+        /// <summary>
         /// Check value is greater than limit
         /// </summary>
         /// <param name="value"></param>
