@@ -104,5 +104,14 @@ namespace Muljin.Utils
                 throw new ArgumentException(message ?? "Parameter cannot be empty", paramName);
             }
         }
+
+        public static void NotNullOrDefault(Guid obj, string paramName, string message = null)
+        {
+            Guards.NotNull(obj, paramName, message);
+            if(obj == default)
+            {
+                throw new ArgumentException(message ?? "Guid cannot be empty", paramName);
+            }
+        }
     }
 }
