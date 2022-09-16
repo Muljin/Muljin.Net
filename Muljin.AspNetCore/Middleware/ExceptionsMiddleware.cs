@@ -35,11 +35,15 @@ namespace Muljin.AspNetCore.Middleware
             {
                 await SetContextError(context, 404, ex);
             }
+            catch (UserNotFoundException ex)
+            {
+                await SetContextError(context, 404, ex);
+            }
             catch (UserActionException ex)
             {
                 await SetContextError(context, 400, ex);
             }
-            catch(ServiceUnavailableException ex)
+            catch (ServiceUnavailableException ex)
             {
                 await SetContextError(context, 503, ex);
             }
