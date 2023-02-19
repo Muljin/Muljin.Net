@@ -89,5 +89,20 @@ namespace Muljin.Utils
 
             return sb.ToString();
         }
+
+        public static string LimitString(string input, int maxLength)
+        {
+            if(maxLength == 0)
+            {
+                return string.Empty;
+            }
+
+            if (String.IsNullOrWhiteSpace(input) || input.Length < maxLength)
+            {
+                return input;
+            }
+
+            return input.Substring(0, maxLength);           
+        }
     }
 }

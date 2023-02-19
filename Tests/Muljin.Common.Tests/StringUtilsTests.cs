@@ -53,5 +53,29 @@ namespace Muljin.Common.Tests
             Assert.AreEqual("h_h_h_l_l_l", res3);
         }
 
+        
+        [TestCase("", ExpectedResult = "")]
+        [TestCase((string)null, ExpectedResult = (string)null)]
+        public string WhenGivenEmptyStringStringLimitReturnsEmpty(string input)
+        {
+            return StringUtils.LimitString(input, 10);
+        }
+
+        [TestCase("blahblah", ExpectedResult = "blahblah")]
+        [TestCase("1234567890", ExpectedResult = "1234567890")]
+        [TestCase("aA", ExpectedResult = "aA")]
+        public string WhenGivenNonEmptyStringBelowLimitReturnsSame(string input)
+        {
+            return StringUtils.LimitString(input, 10);
+        }
+
+
+        [TestCase("blahblahblah", ExpectedResult = "blahblahbl")]
+        [TestCase("blahblahblahblahblahblahblahblahblahblah", ExpectedResult = "blahblahbl")]
+        public string WhenGivenLongerStringReturnsSubstring(string input)
+        {
+            return StringUtils.LimitString(input, 10);
+        }
+
     }
 }

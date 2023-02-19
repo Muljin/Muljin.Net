@@ -7,6 +7,17 @@ namespace System
 {
     public static class StringExtensions
     {
+        /// <summary>
+        /// Limit a string to a maximum number of characters or less if string is shorter
+        /// </summary>
+        /// <param name="input"></param>
+        /// <param name="maxLength"></param>
+        /// <returns></returns>
+        public static string Limit(this string input, int maxLength)
+        {
+            return StringUtils.LimitString(input, maxLength);
+        }
+
         public static string ToSlug(this string input)
         {
             return StringUtils.ConvertToSlug(input);
