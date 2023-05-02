@@ -3,6 +3,7 @@ using System.Threading.Tasks;
 using Microsoft.Extensions.Logging;
 using Microsoft.AspNetCore.Builder;
 using Muljin.Exceptions;
+using System;
 
 namespace Muljin.AspNetCore.Middleware
 {
@@ -25,31 +26,54 @@ namespace Muljin.AspNetCore.Middleware
             }
             catch (ConflictException ex)
             {
+                LogExceptionWarning(ex);
                 await SetContextError(context, 409, ex);
             }
             catch (UnauthorizedException ex)
             {
+                LogExceptionWarning(ex);
                 await SetContextError(context, 403, ex);
             }
             catch (RecordNotFoundException ex)
             {
+                LogExceptionWarning(ex);
                 await SetContextError(context, 404, ex);
             }
             catch (UserNotFoundException ex)
             {
+                LogExceptionWarning(ex);
                 await SetContextError(context, 404, ex);
             }
             catch (UserActionException ex)
             {
+                LogExceptionWarning(ex);
                 await SetContextError(context, 400, ex);
             }
             catch (ServiceUnavailableException ex)
             {
+                LogExceptionError(ex);
                 await SetContextError(context, 503, ex);
             }
             catch(MuljinException ex)
             {
+                LogExceptionError(ex);
                 await SetContextError(context, 500, ex);
+            }
+        }
+
+        private void LogExceptionError(Exception ex)
+        {
+            if (_logger != null)
+            {
+                _logger.LogError(ex, "Error caught by exception middleware");
+            }
+        }
+
+        private void LogExceptionWarning(Exception ex)
+        {
+            if (_logger != null)
+            {
+                _logger.LogWarning(ex, "Exception caught and handled by middleware");
             }
         }
 
