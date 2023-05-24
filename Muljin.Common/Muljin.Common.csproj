@@ -12,7 +12,7 @@
     <Copyright>Muljin Pte. Ltd.</Copyright>
     <PackageProjectUrl>https://www.muljin.com</PackageProjectUrl>
     <RepositoryUrl>https://github.com/Muljin/Muljin.Net</RepositoryUrl>
-    <Version>2.2.8</Version>
+    <Version>2.2.9</Version>
     <PackageLicenseFile>LICENSE</PackageLicenseFile>
   </PropertyGroup>
 
