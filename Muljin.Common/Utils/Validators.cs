@@ -25,5 +25,18 @@ namespace Muljin.Utils
                 throw new ArgumentException("Invalid email format", nameof(email));
             }
         }
+
+        public static bool TryValidateEmail(string email)
+        {
+            try
+            {
+                ValidateEmail(email);
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
+        }
     }
 }
