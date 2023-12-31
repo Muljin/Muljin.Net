@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Muljin.Data.Postgres
 {
-    internal static class ExceptionConverter
+    public static class ExceptionConverter
     {
         public static async Task CallAsync(Func<Task> action)
         {
