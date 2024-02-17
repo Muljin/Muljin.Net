@@ -54,6 +54,10 @@ namespace Muljin.AspNetCore.Middleware
                 LogExceptionError(ex);
                 await SetContextError(context, 503, ex);
             }
+            catch(UpstreamException ex){
+                LogExceptionError(ex);
+                await SetContextError(context, 500, ex);
+            }
             catch(MuljinException ex)
             {
                 LogExceptionError(ex);
