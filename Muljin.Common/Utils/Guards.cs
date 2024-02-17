@@ -7,13 +7,30 @@ namespace Muljin.Utils
     public static class Guards
     {
         /// <summary>
+        /// Ensure a string consists only of latin alpha characters (a-zA-Z)
+        /// </summary>
+        /// <param name="obj"></param>
+        /// <param name="paramName"></param>
+        /// <param name="message"></param>
+        public static void LatinOnly(string obj, string paramName = null, string message = null)
+        {
+            foreach(var o in obj){
+                if((o >= 'a' && o <='z') || (o >= 'A' && o <= 'Z')){
+                    continue;
+                }
+                
+                throw new ArgumentException(message ?? "Invalid input. Input must consist of letters only", paramName);
+            }
+        }
+
+        /// <summary>
         /// Ensure a string only consists of alpha numeric characters
         /// </summary>
         /// <param name="obj"></param>
         /// <param name="paramName"></param>
         /// <param name="message"></param>
         /// <exception cref="ArgumentException"></exception>
-        public static void AlphaNumeric(string obj, string paramName, string message = null)
+        public static void AlphaNumeric(string obj, string paramName = null, string message = null)
         {
             foreach(var o in obj)
             {
@@ -31,7 +48,7 @@ namespace Muljin.Utils
         /// <param name="paramName"></param>
         /// <param name="message"></param>
         /// <exception cref="ArgumentException"></exception>
-        public static void Numeric(string obj, string paramName, string message = null)
+        public static void Numeric(string obj, string paramName = null, string message = null)
         {
             foreach(var o in obj)
             {
@@ -108,7 +125,7 @@ namespace Muljin.Utils
             }
         }
 
-        public static void NotNull(object obj, string paramName, string message = null)
+        public static void NotNull(object obj, string paramName = null, string message = null)
         {
             if (obj == null)
             {
@@ -117,7 +134,7 @@ namespace Muljin.Utils
         }
 
 
-        public static void NotNullOrDefault(object obj, string paramName, string message = null)
+        public static void NotNullOrDefault(object obj, string paramName = null, string message = null)
         {
             Guards.NotNull(obj, paramName, message);
 
@@ -131,7 +148,7 @@ namespace Muljin.Utils
         /// Check if string is null or whitespace, throw exception if either
         /// </summary>
         /// <param name="obj"></param>
-        public static void NotNullOrDefault(string obj, string paramName, string message = null)
+        public static void NotNullOrDefault(string obj, string paramName = null, string message = null)
         {
             Guards.NotNull(obj, paramName, message);
 
@@ -141,7 +158,7 @@ namespace Muljin.Utils
             }
         }
 
-        public static void NotNullOrDefault(Guid obj, string paramName, string message = null)
+        public static void NotNullOrDefault(Guid obj, string paramName = null, string message = null)
         {
             Guards.NotNull(obj, paramName, message);
             if(obj == default)

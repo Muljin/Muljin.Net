@@ -33,6 +33,24 @@ namespace Muljin.Common.Tests.GuardsTests
             Assert.Throws<ArgumentException>(()=>Guards.AlphaNumeric(value, nameof(value)));
         }
 
+        [TestCase("ABC")]
+        [TestCase("ABc")]
+        [TestCase("aZAz")]
+        [TestCase("abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ")]
+        public void WhenLatinSucceeds(string value){
+            Assert.DoesNotThrow(()=>Guards.LatinOnly(value));
+
+        }
+
+        [TestCase("ABC ")]
+        [TestCase("ABc1")]
+        [TestCase("aZAz,")]
+        [TestCase("غا")]
+        [TestCase("123")]
+        public void WhenNotLatinFails(string value){
+            Assert.Throws<ArgumentException>(()=>Guards.LatinOnly(value));
+        }
+
         [TestCase("01234567890")]
         [TestCase("0")]
         public void WhenNumericSucceeds(string value)
