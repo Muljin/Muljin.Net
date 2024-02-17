@@ -12,7 +12,7 @@
     <Copyright>Muljin Pte. Ltd.</Copyright>
     <PackageProjectUrl>https://www.muljin.com</PackageProjectUrl>
     <RepositoryUrl>https://github.com/Muljin/Muljin.Net</RepositoryUrl>
-    <Version>3.0.0</Version>
+    <Version>3.0.1</Version>
     <PackageLicenseFile>LICENSE</PackageLicenseFile>
   </PropertyGroup>
 
@@ -24,6 +24,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="System.Text.Json" Version="7.0.1" />
+    <PackageReference Include="System.Text.Json" Version="8.0.2" />
   </ItemGroup>
 </Project>
