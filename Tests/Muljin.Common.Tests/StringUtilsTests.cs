@@ -14,8 +14,8 @@ namespace Muljin.Common.Tests
             var res = StringUtils.ConvertToSnakeCase(string.Empty);
             var res2 = StringUtils.ConvertToSnakeCase(null);
 
-            Assert.AreEqual(string.Empty, res);
-            Assert.IsNull(res2);
+            Assert.That(res, Is.Empty);
+            Assert.That(res2, Is.Null);
         }
 
         [Test]
@@ -26,9 +26,9 @@ namespace Muljin.Common.Tests
             var res3 = StringUtils.ConvertToSnakeCase("m");
 
 
-            Assert.AreEqual("hellothere", res);
-            Assert.AreEqual("hi", res2);
-            Assert.AreEqual("m", res3);
+            Assert.That(res, Is.EqualTo("hellothere"));
+            Assert.That(res2, Is.EqualTo("hi"));
+            Assert.That(res3, Is.EqualTo("m"));
         }
 
         [Test]
@@ -37,8 +37,8 @@ namespace Muljin.Common.Tests
             var res = StringUtils.ConvertToSnakeCase("helloThere");
             var res2 = StringUtils.ConvertToSnakeCase("hiThereHowAreYouToday");
 
-            Assert.AreEqual("hello_there", res);
-            Assert.AreEqual("hi_there_how_are_you_today", res2);
+            Assert.That(res, Is.EqualTo("hello_there"));
+            Assert.That(res2, Is.EqualTo("hi_there_how_are_you_today"));
         }
 
         [Test]
@@ -48,9 +48,9 @@ namespace Muljin.Common.Tests
             var res2 = StringUtils.ConvertToSnakeCase("HiThereHowAreYouToday");
             var res3 = StringUtils.ConvertToSnakeCase("HHHLLL");
 
-            Assert.AreEqual("hello_there", res);
-            Assert.AreEqual("hi_there_how_are_you_today", res2);
-            Assert.AreEqual("h_h_h_l_l_l", res3);
+            Assert.That(res, Is.EqualTo("hello_there"));
+            Assert.That(res2, Is.EqualTo("hi_there_how_are_you_today"));
+            Assert.That(res3, Is.EqualTo("h_h_h_l_l_l"));
         }
 
         

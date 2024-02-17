@@ -33,6 +33,32 @@ namespace Muljin.Common.Tests.GuardsTests
             Assert.Throws<ArgumentException>(()=>Guards.AlphaNumeric(value, nameof(value)));
         }
 
+        [TestCase("1234", 4, 5, false)]
+        [TestCase("1234 ", 4, 5, false)]
+        [TestCase("1234", 4, 5, true)]
+        [TestCase("1234 ", 4, 5, true)]
+        [TestCase("1234    ", 4, 5, false)]
+        [TestCase("    1234    ", 4, 5, false)]
+        public void WhenStringLengthCorrectSucceeds(string value, int min, int max, bool allowWhiteSpace){
+            Assert.DoesNotThrow(()=>Guards.Length(value,min, max, allowWhiteSpace));
+        }
+
+        [TestCase("1234", 1, 3, false)]
+        [TestCase("123 ", 1, 3, true)]
+        [TestCase("12323", 1, 3, true)]
+        [TestCase("12323", 1, 3, false)]
+        [TestCase(" 123", 1, 3, true)]
+        [TestCase(" 1232 ", 1, 3, true)]
+        [TestCase("  ", 1, 3, false)]
+        public void WhenStringLengthWrongFails(string value, int min, int max, bool allowWhiteSpace){
+            Assert.Throws<ArgumentException>(()=>Guards.Length(value,min, max, allowWhiteSpace));
+        }
+
+        [TestCase(null, 1, 3, false)]
+        public void WhenStringNullOrWhitespaceFails(string value, int min, int max, bool allowWhiteSpace){
+            Assert.Throws<ArgumentNullException>(()=>Guards.Length(value,min, max, allowWhiteSpace));
+        }
+
         [TestCase("ABC")]
         [TestCase("ABc")]
         [TestCase("aZAz")]

@@ -23,10 +23,10 @@ namespace Muljin.Common.Tests
             var e4 = d4.ToEpoch();
 
             //asset
-            Assert.AreEqual(0, e1);
-            Assert.AreEqual(959846400, e2);
-            Assert.AreEqual(1291219200, e3);
-            Assert.AreEqual(1609459199, e4);
+            Assert.That(e1, Is.EqualTo(0));
+            Assert.That(e2, Is.EqualTo(959846400));
+            Assert.That(e3, Is.EqualTo(1291219200));
+            Assert.That(e4, Is.EqualTo(1609459199));
         }
 
         [Test]
@@ -47,10 +47,10 @@ namespace Muljin.Common.Tests
             var e4 = DateTimeExtensions.EpochToDateTime(1609459199);
 
             //asset
-            Assert.AreEqual(d1, e1);
-            Assert.AreEqual(d2, e2);
-            Assert.AreEqual(d3, e3);
-            Assert.AreEqual(d4, e4);
+            Assert.That(e1, Is.EqualTo(d1));
+            Assert.That(e2, Is.EqualTo(d2));
+            Assert.That(e3, Is.EqualTo(d3));
+            Assert.That(e4, Is.EqualTo(d4));
         }
     }
 }

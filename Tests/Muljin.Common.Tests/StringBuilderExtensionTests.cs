@@ -16,7 +16,7 @@ namespace Muljin.Common.Tests
 
             sb.AppendNoneEmpty(", ");
 
-            Assert.AreEqual("test", sb.ToString());
+            Assert.That(sb.ToString(), Is.EqualTo("test"));
         }
 
         [Test]
@@ -24,7 +24,8 @@ namespace Muljin.Common.Tests
         {
             var sb = new StringBuilder();
             sb.AppendNoneEmpty("", "Test1", "Test2", "Test3 ", "Test4");
-            Assert.AreEqual("Test1Test2Test3 Test4", sb.ToString());
+
+            Assert.That(sb.ToString(), Is.EqualTo("Test1Test2Test3 Test4"));
         }
 
         [Test]
@@ -38,8 +39,8 @@ namespace Muljin.Common.Tests
             sb.AppendNoneEmpty(", ");
             sb2.AppendNoneEmpty(", ");
 
-            Assert.AreEqual("Test", sb.ToString());
-            Assert.AreEqual("", sb2.ToString());
+            Assert.That(sb.ToString(), Is.EqualTo("Test"));
+            Assert.That(sb2.ToString(), Is.EqualTo(""));
         }
 
         [Test]
@@ -53,8 +54,8 @@ namespace Muljin.Common.Tests
             sb.AppendNoneEmpty(", ", "", " ", "   ");
             sb2.AppendNoneEmpty(", ", "", " ", "    ");
 
-            Assert.AreEqual("Test", sb.ToString());
-            Assert.AreEqual("", sb2.ToString());
+            Assert.That(sb.ToString(), Is.EqualTo("Test"));
+            Assert.That(sb2.ToString(), Is.EqualTo(""));
         }
 
         [Test]
@@ -68,8 +69,8 @@ namespace Muljin.Common.Tests
             sb.AppendNoneEmpty(", ", "Test1", "Test2", "Test3");
             sb2.AppendNoneEmpty(", ", "Test1", "Test2", "Test3");
 
-            Assert.AreEqual("TestTest1, Test2, Test3", sb.ToString());
-            Assert.AreEqual("Test1, Test2, Test3", sb2.ToString());
+            Assert.That(sb.ToString(), Is.EqualTo("TestTest1, Test2, Test3"));
+            Assert.That(sb2.ToString(), Is.EqualTo("Test1, Test2, Test3"));
         }
     }
 }

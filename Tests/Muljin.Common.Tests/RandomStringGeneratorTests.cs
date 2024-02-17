@@ -20,9 +20,9 @@ namespace Muljin.Common.Tests
             var s = RandomStringGenerator.Generate(100, true);
 
 			//asset
-			Assert.True(s.All(c => lowerCases.Contains(c) || upperCase.Contains(c)));
-			Assert.True(s.Any(c => lowerCases.Contains(c)));
-			Assert.True(s.Any(c => upperCase.Contains(c)));
+			Assert.That(s.All(c => lowerCases.Contains(c) || upperCase.Contains(c)), Is.True);
+			Assert.That(s.Any(c => lowerCases.Contains(c)), Is.True);
+			Assert.That(s.Any(c => upperCase.Contains(c)), Is.True);
         }
 
 		[Test]
@@ -31,7 +31,7 @@ namespace Muljin.Common.Tests
 			var s = RandomStringGenerator.Generate(100, false);
 
 			//assert
-			Assert.True(s.All(c => lowerCases.Contains(c)));
+			Assert.That(s.All(c => lowerCases.Contains(c)), Is.True);
 		}
 
 
@@ -41,7 +41,7 @@ namespace Muljin.Common.Tests
             var s = RandomStringGenerator.Generate(100, true);
 
 			//assert
-			Assert.AreEqual(100, s.Length);
+			Assert.That(s.Length, Is.EqualTo(100));
         }
     }
 }

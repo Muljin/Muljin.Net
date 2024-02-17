@@ -19,7 +19,7 @@ namespace Muljin.Common.Tests
             var res = JwtUtils.ValidateToken(tokenValid);
 
             //assert
-            Assert.IsTrue(res);
+            Assert.That(res, Is.True);
         }
 
         [Test]
@@ -32,9 +32,9 @@ namespace Muljin.Common.Tests
 
 
             //assert
-            Assert.IsFalse(res1);
-            Assert.IsFalse(res2);
-            Assert.IsFalse(res3);
+            Assert.That(res1, Is.False);
+            Assert.That(res2, Is.False);
+            Assert.That(res3, Is.False);
         }
 
         [Test]
@@ -43,16 +43,16 @@ namespace Muljin.Common.Tests
             //act and arrange
             var body = JwtUtils.ExtractTokenBody(tokenValid);
 
-            Assert.IsNotNull(body);
+            Assert.That(body, Is.Not.Null);
 
-            Assert.IsTrue(body.TryGetProperty("aud", out var aud));
-            Assert.IsTrue(body.TryGetProperty("iss", out var iss));
-            Assert.IsTrue(body.TryGetProperty("iat", out var iat));
+            Assert.That(body.TryGetProperty("aud", out var aud), Is.True);
+            Assert.That(body.TryGetProperty("iss", out var iss), Is.True);
+            Assert.That(body.TryGetProperty("iat", out var iat), Is.True);
 
-            Assert.AreEqual("api://trulyhpcdev", aud.GetString());
-            Assert.AreEqual("https://sts.windows.net/3f23aac6-ee3f-45cb-bd60-fe14f778a467/", iss.GetString());
-            Assert.IsTrue(iat.TryGetInt32(out var iatInt));
-            Assert.AreEqual(1597528771, iatInt);
+            Assert.That(aud.GetString(), Is.EqualTo("api://trulyhpcdev"));
+            Assert.That(iss.GetString(), Is.EqualTo("https://sts.windows.net/3f23aac6-ee3f-45cb-bd60-fe14f778a467/"));
+            Assert.That(iat.TryGetInt32(out var iatInt), Is.True);
+            Assert.That(iatInt, Is.EqualTo(1597528771));
         }
 
     }

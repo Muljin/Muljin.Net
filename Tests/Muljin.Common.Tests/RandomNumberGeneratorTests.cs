@@ -19,8 +19,9 @@ namespace Muljin.Common.Tests
                 for(var i = 0; i<1000; i++)
                 {
                     var a = rn.Generate(max,min);
-                    Assert.LessOrEqual(a, max);
-                    Assert.GreaterOrEqual(a, min);
+
+                    Assert.That(a, Is.LessThanOrEqualTo(max));
+                    Assert.That(a, Is.GreaterThanOrEqualTo(min));
                 }
             }
         }
@@ -44,8 +45,7 @@ namespace Muljin.Common.Tests
 
             var avg = (max + min) / 2m;
 
-            Assert.IsTrue(Math.Abs(runningAvg - avg) < (avg * 0.05m));
-
+            Assert.That(Math.Abs(runningAvg - avg) < (avg * 0.05m), Is.True);
         }
     }
 }
