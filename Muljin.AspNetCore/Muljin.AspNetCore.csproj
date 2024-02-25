@@ -3,7 +3,7 @@
   <PropertyGroup>
     <TargetFramework>net8.0</TargetFramework>
     <PackageId>Muljin.AspNetCore</PackageId>
-    <Version>3.0.0</Version>
+    <Version>3.0.3</Version>
     <Authors>Mahmoud Swehli</Authors>
     <Company>Muljin Pte. Ltd</Company>
     <Description>Muljin common classes and utilities for Asp.Net Core</Description>
