@@ -89,16 +89,7 @@ namespace Muljin.Data.Postgres
         /// <returns></returns>
         public async Task<IEnumerable<T>> GetListAsync(string sql, CommandType commandType = CommandType.StoredProcedure)
         {
-            var res = await ExceptionConverter.CallAsync(async () =>
-            {
-                using (var conn = new NpgsqlConnection(_connectionString))
-                {
-                    var res = await conn.QueryAsync<T>(sql, commandType: commandType);
-                    return res;
-                }
-            });
-
-            return res;
+            return await GetListAsync<T>(sql, commandType);
         }
 
         /// <summary>
@@ -112,6 +103,20 @@ namespace Muljin.Data.Postgres
             CommandType commandType = CommandType.StoredProcedure)
         {
             return await GetListAsync<T>(sql, parameters, commandType);
+        }
+
+        public async Task<IEnumerable<T2>> GetListAsync<T2>(string sql, CommandType commandType = CommandType.StoredProcedure)
+        {
+            var res = await ExceptionConverter.CallAsync(async () =>
+            {
+                using (var conn = new NpgsqlConnection(_connectionString))
+                {
+                    var res = await conn.QueryAsync<T2>(sql, commandType: commandType);
+                    return res;
+                }
+            });
+
+            return res;
         }
 
         public async Task<IEnumerable<T2>> GetListAsync<T2>(string sql, object parameters,
