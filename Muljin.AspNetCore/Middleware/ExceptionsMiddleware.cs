@@ -34,6 +34,11 @@ namespace Muljin.AspNetCore.Middleware
                 LogExceptionWarning(ex);
                 await SetContextError(context, 403, ex);
             }
+            catch(ForbbidenException ex)
+            {
+                LogExceptionWarning(ex);
+                await SetContextError(context, 403, ex);
+            }
             catch (RecordNotFoundException ex)
             {
                 LogExceptionWarning(ex);
@@ -58,7 +63,7 @@ namespace Muljin.AspNetCore.Middleware
                 LogExceptionError(ex);
                 await SetContextError(context, 500, ex);
             }
-            catch(MuljinException ex)
+            catch(Exception ex)
             {
                 LogExceptionError(ex);
                 await SetContextError(context, 500, ex);
@@ -81,14 +86,20 @@ namespace Muljin.AspNetCore.Middleware
             }
         }
 
-        private async Task SetContextError(HttpContext context, int statusCode, MuljinException exception)
+        private async Task SetContextError(HttpContext context, int statusCode, Exception exception)
         {
             context.Response.Clear();
             context.Response.StatusCode = statusCode;
             context.Response.ContentType = "application/json";
 
-            await context.Response.WriteAsync(System.Text.Json.JsonSerializer.Serialize(new ErrorResult{ 
-                Success = false, Message = exception.Message, ErrorCode = exception.ErrorCode }));
+            var result = new ErrorResult
+            {
+                Success = false,
+                Message = exception.Message,
+                ErrorCode = (exception is MuljinException me) ? me.ErrorCode : "GEN_ERROR"
+            };
+
+            await context.Response.WriteAsync(System.Text.Json.JsonSerializer.Serialize(result));
         }
     }
 

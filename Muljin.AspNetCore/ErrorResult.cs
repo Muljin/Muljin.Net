@@ -4,11 +4,11 @@ using System.Text;
 
 namespace Muljin.AspNetCore
 {
-    public class ErrorResult
+    public record ErrorResult
     {
         public string ErrorCode { get; set; }
 
-        public string Message { get; set; }
+        public required string Message { get; set; }
 
         public bool Success { get; set; }
     }
