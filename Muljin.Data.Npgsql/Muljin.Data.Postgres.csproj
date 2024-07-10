@@ -3,7 +3,7 @@
   <PropertyGroup>
     <TargetFramework>net8.0</TargetFramework>
     <PackageLicenseFile>LICENSE</PackageLicenseFile>
-    <Version>3.1.1</Version>
+    <Version>3.1.2</Version>
     <Authors>Mahmoud Swehli</Authors>
     <Company>Muljin Pte. Ltd.</Company>
     <Product>Muljin Data Npgsql common library</Product>
@@ -20,7 +20,7 @@
 
   <ItemGroup>
     <PackageReference Include="Dapper" Version="2.1.35" />
-    <PackageReference Include="Muljin.Common" Version="3.1.0" />
+    <PackageReference Include="Muljin.Common" Version="3.1.1" />
     <PackageReference Include="Npgsql" Version="8.0.3" />
   </ItemGroup>
 
