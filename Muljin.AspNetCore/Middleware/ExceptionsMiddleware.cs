@@ -34,7 +34,7 @@ namespace Muljin.AspNetCore.Middleware
                 LogExceptionWarning(ex);
                 await SetContextError(context, 403, ex);
             }
-            catch(ForbbidenException ex)
+            catch(ForbiddenException ex)
             {
                 LogExceptionWarning(ex);
                 await SetContextError(context, 403, ex);
