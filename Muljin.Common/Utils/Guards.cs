@@ -189,6 +189,20 @@ namespace Muljin.Utils
             }
         }
 
+        /// <summary>
+        /// Throws exception if two objects are equal.
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="obj1"></param>
+        /// <param name="obj2"></param>
+        /// <exception cref="ArgumentException"></exception>
+        public static void NotEqual<T>(T obj1, T obj2) where T : IEquatable<T>
+        {
+            if(obj1.Equals(obj2)){
+                throw new ArgumentException("Values cannot be equal");
+            }
+        }
+
         public static void NotNull(object obj, string paramName = null, string message = null)
         {
             if (obj == null)
