@@ -93,6 +93,31 @@ namespace Muljin.Common.Tests.GuardsTests
             Assert.Throws<ArgumentException>(() => Guards.Numeric(value, nameof(value)));
         }
 
+        [Test()]
+        public void WhenGuidEqual_ThrowsException()
+        {
+            //arrange
+            var guid = Guid.NewGuid();
+            var guid2 = Guid.Parse(guid.ToString());
+
+            //act and assert
+            Assert.Throws<ArgumentException>(()=>Guards.NotEqual(guid, guid2));
+        }
+
+        [Test()]
+        public void WhenStringEqual_ThrowsException()
+        {
+            Assert.Throws<ArgumentException>(()=>Guards.NotEqual("val1", "val1"));
+        }
+
+        [TestCase("val1", "val2")]
+        [TestCase("", " ")]
+        [TestCase("", ".")]
+        public void WhenStringNotEqual_DoesNotThrowException(string val1, string val2)
+        {
+            Assert.DoesNotThrow(()=>Guards.NotEqual(val1, val2));
+        }
+
 
     }
 }
